@@ -9,16 +9,36 @@ import (
 func main() {
 
 	s := "middle-Outz"
-
 	fmt.Print(cipher(s, 2) + "\n")
 
-	s1 := "oneTwoThree"
-	s2 := "saveChangesInTheEditor"
-	s3 := ""
+	countWordsInString("oneTwoThree")
+	countWordsInString("saveChangesInTheEditor")
+	countWordsInString("")
 
-	countWordsInString(s1)
-	countWordsInString(s2)
-	countWordsInString(s3)
+	arr := []int{-4, 3, -9, 0, 4, 1}
+	countArrayNumbers(arr)
+}
+
+func countArrayNumbers(arr []int) {
+	var nPos, nNeg, nZero float32
+	for _, v := range arr {
+		if v > 0 {
+			nPos++
+		} else if v < 0 {
+			nNeg++
+		} else {
+			nZero++
+		}
+	}
+	size := float32(6)
+
+	posProp := nPos / size
+	negProp := nNeg / size
+	zeroProp := nZero / size
+
+	fmt.Printf("%.6f\n", posProp)
+	fmt.Printf("%.6f\n", negProp)
+	fmt.Printf("%.6f\n", zeroProp)
 }
 
 func cipher(s string, k int) string {
